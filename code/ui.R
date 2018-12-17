@@ -105,7 +105,10 @@ ui <- dashboardPage(skin = "blue",
                         tabItem(tabName = "help", 
                                 
                                 fluidRow(
-                                   box(width = 12, height = 600, textOutput("helptext")),
+                                   box(width = 12, height = 70, textOutput("helptext")),
+                                   box(width = 12, height = 60, textOutput("helptext2")),
+                                   box(width = 12, height = 60, textOutput("helptext3")),
+                                   box(width = 12, height = 60, textOutput("helptext4")),
                                    box(width = 5 , background = "yellow", color = "blue", uiOutput("helpui"))   
                                   
                                 )

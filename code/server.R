@@ -77,7 +77,7 @@ server <- function(input, output) {
     dat2 <- reactive ({ 
     temp1 <- medaltally1 
     temp1$Medal <- factor(temp1$Medal, levels = c("Gold", "Silver", "Bronze"))
-    ###Syukri:Added code to limit the view to top 20 of accumulated medals
+    ###Syukri:Added code to limit the view to top 30 of accumulated medals
     if (input$Sport[1] == "ALL") {
       temp9 <- temp1 %>% group_by(Country) %>% 
         summarise(totalMedal = sum(n)) %>% 
@@ -222,9 +222,23 @@ server <- function(input, output) {
   ##############################   Help   ############################################
   
    url <- a("Help Page here", href="https://www.google.com/")
-    helpdoc <- ("This application guide... abcdefgh... << xu xiang >>")
+    helpdoc <-  "Tab 1	 Graph:  In this tab, a glimpse of past Summer Olympic results is showed.  User is able to filter by setting the parameters by | Sports | Year | Sex | and other filter by search box provided. 
+    Then, can view the output graph by Histogram Graphs." 
+    helpdoc2 <- "Tab2 	XYPlots:  In this tab, we are experimenting and plotting the values for the Population vs Medals won and the GDP Value vs Medals won per country. 
+    Output scatter plot can be controlled by the slider input given below."
+    helpdoc3 <- "Tab3 	Analysis: On the analytics tab we have a linear regression model plotted to predict the approximate Medals that can be won by a Country based on their Populations or GDP."
+    helpdoc4 <- "Tab4  User Guide: A downloadable link of this guide is available below."
   output$helptext <- renderText({
     print(helpdoc)
+  })
+  output$helptext2 <- renderText({
+    print(helpdoc2)
+  })  
+  output$helptext3 <- renderText({
+    print(helpdoc3)
+  })  
+  output$helptext4 <- renderText({
+    print(helpdoc4)
   })  
   output$helpui <-   renderUI({
     tagList("***", url)
